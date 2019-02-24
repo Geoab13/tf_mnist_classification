@@ -11,3 +11,7 @@ In the image below you can see a tensorboard visualization of the computational 
 For training 100 epochs was used in this example. For training and testing accuracy and loss, see graphs in the image below. This can easily be changed by updating the num_epochs variable.
 
 ![Computational Graph](https://github.com/Geoab13/tf_mnist_classification/blob/master/mnist_acc_loss.png)
+
+## Keras Version
+
+In the file *keras-mnist-classifier.py* a corresponding neural network is implemented with less lines of code using the Keras API to tensorflow.
