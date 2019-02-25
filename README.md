@@ -14,4 +14,4 @@ For training 100 epochs was used in this example. For training and testing accur
 
 ## Keras Version
 
-In the file *keras-mnist-classifier.py* a corresponding neural network is implemented with less lines of code using the Keras API to tensorflow.
+In the file *keras-mnist-classifier.py* a corresponding neural network is implemented with less lines of code using the Keras API to tensorflow. Note that under the hood, these neural networks are still different since Keras builds in other functionality and best practices by default. High validation score can be achieved with less epochs.

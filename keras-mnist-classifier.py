@@ -26,12 +26,19 @@ for i in range(25):
 plt.show()
 
 model = keras.Sequential([
-    keras.layers.Flatten(input_shape=(28, 28)),
-    keras.layers.Dense(50, activation=tf.nn.relu),
-    keras.layers.Dense(100, activation=tf.nn.relu),
-    keras.layers.Dense(50, activation=tf.nn.relu),
-    keras.layers.Dense(10, activation=tf.nn.softmax)
+    keras.layers.Flatten(input_shape=(28, 28), name='input'),
+    keras.layers.Dense(50, activation=tf.nn.relu, name='layer_1'),
+    keras.layers.Dense(100, activation=tf.nn.relu, name='layer_2'),
+    keras.layers.Dense(50, activation=tf.nn.relu, name='layer_3'),
+    keras.layers.Dense(10, activation=tf.nn.softmax, name='layer_output')
 ])
+
+#TensorBoard logger
+logger = keras.callbacks.TensorBoard(
+    log_dir='keras_log',
+    write_graph=True,
+    histogram_freq=5
+)
 
 #using adam optimizer with sparse_categorical_crossentropy since input is not
 # one hot encoded
@@ -39,9 +46,18 @@ model.compile(optimizer='adam',
               loss='sparse_categorical_crossentropy',
               metrics=['accuracy'])
 
-#train model by fitting it to the training data
-model.fit(x_train, y_train, epochs=20)
+#train model by fitting it to the training data, add logger callback
+model.fit(
+    x_train,
+    y_train,
+    epochs=40,
+    shuffle=True,
+    validation_data=(x_test, y_test),
+    callbacks=[logger]
+    )
 
 #test model
 test_loss, test_acc = model.evaluate(x_test, y_test)
 print('Test accuracy:', test_acc)
+
+model.save("simple_classification_nn.h5")
