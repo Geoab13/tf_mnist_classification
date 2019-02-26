@@ -14,12 +14,8 @@ x_train, x_test = x_train / 255.0, x_test / 255.0
 x_train = x_train.reshape([x_train.shape[0], 784])
 x_test = x_test.reshape([x_test.shape[0], 784])
 
-#x_train = tf.reshape(x_train, shape=[x_train.shape[0], 784])
-#x_test = tf.reshape(x_test, shape=[x_test.shape[0], 784])
-
 #one_hot encode
 y_train = np.squeeze(np.eye(10)[y_train.reshape(-1)])
-#y_train = tf.one_hot(y_train, depth=10, dtype=tf.float64)
 y_test = np.squeeze(np.eye(10)[y_test.reshape(-1)])
 
 
