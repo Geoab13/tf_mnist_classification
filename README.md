@@ -5,7 +5,7 @@ In this TensorFlow program, I construct a simple neural network to classify hand
 
 A part of the input data along with labels used in this program can be seen in the plot below.
 
-![Data](https://github.com/Geoab13/tf_mnist_classification/blob/master/data.png)
+![Data](https://github.com/Geoab13/tf_mnist_classification/blob/master/training_data.png)
 
 In the image below you can see a tensorboard visualization of the computational graph.
 
